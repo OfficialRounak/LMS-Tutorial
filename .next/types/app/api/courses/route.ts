@@ -1,4 +1,4 @@
-// File: C:\Users\Rounak\Desktop\next13-lms-platform\app\api\courses\route.ts
+// File: /Users/roubhatt/Desktop/LMS Personal/LMS-Tutorial/app/api/courses/route.ts
 import * as entry from '../../../../../app/api/courses/route.js'
 import type { NextRequest } from 'next/server.js'
 
