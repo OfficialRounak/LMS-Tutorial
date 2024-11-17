@@ -1,20 +1,4 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/courses/route": "app/api/courses/route.js",
-  "/api/uploadthing/route": "app/api/uploadthing/route.js",
   "/(dashboard)/(routes)/page": "app/(dashboard)/(routes)/page.js",
-  "/api/courses/[courseId]/route": "app/api/courses/[courseId]/route.js",
-  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js",
-  "/api/courses/[courseId]/attachments/route": "app/api/courses/[courseId]/attachments/route.js",
-  "/api/courses/[courseId]/chapters/route": "app/api/courses/[courseId]/chapters/route.js",
-  "/(auth)/(routes)/sign-in/[[...sign-in]]/page": "app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js",
-  "/(auth)/(routes)/sign-up/[[...sign-up]]/page": "app/(auth)/(routes)/sign-up/[[...sign-up]]/page.js",
-  "/(dashboard)/(routes)/teacher/analytics/page": "app/(dashboard)/(routes)/teacher/analytics/page.js",
-  "/api/courses/[courseId]/attachments/[attachmentId]/route": "app/api/courses/[courseId]/attachments/[attachmentId]/route.js",
-  "/(dashboard)/(routes)/teacher/create/page": "app/(dashboard)/(routes)/teacher/create/page.js",
-  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js",
-  "/api/courses/[courseId]/chapters/[chapterId]/route": "app/api/courses/[courseId]/chapters/[chapterId]/route.js",
-  "/api/courses/[courseId]/chapters/reorder/route": "app/api/courses/[courseId]/chapters/reorder/route.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
+  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js"
 }

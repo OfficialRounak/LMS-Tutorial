@@ -1,4 +1,4 @@
-// File: /Users/roubhatt/Desktop/LMS Personal/LMS-Tutorial/app/(dashboard)/(routes)/teacher/courses/page.tsx
+// File: /Users/roubhatt/Desktop/LMS-Tutorial/app/(dashboard)/(routes)/teacher/courses/page.tsx
 import * as entry from '../../../../../../../app/(dashboard)/(routes)/teacher/courses/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
