@@ -1,4 +1,9 @@
 {
+  "/api/uploadthing/route": "app/api/uploadthing/route.js",
   "/(dashboard)/(routes)/page": "app/(dashboard)/(routes)/page.js",
-  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js"
+  "/api/courses/[courseId]/chapters/route": "app/api/courses/[courseId]/chapters/route.js",
+  "/api/courses/[courseId]/attachments/route": "app/api/courses/[courseId]/attachments/route.js",
+  "/api/courses/[courseId]/chapters/reorder/route": "app/api/courses/[courseId]/chapters/reorder/route.js",
+  "/(dashboard)/(routes)/teacher/create/page": "app/(dashboard)/(routes)/teacher/create/page.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
 }
