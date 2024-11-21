@@ -94,7 +94,9 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
                   <FormControl>
                     <Input 
                     disabled={isSubmitting}
-                    placeholder="Title here .." {...field} />
+                    placeholder="Title here .." 
+                    {...field} 
+                    />
                   </FormControl>
                   <FormDescription>
                     Write your Course name here.  e.g: Adavnced Web Development

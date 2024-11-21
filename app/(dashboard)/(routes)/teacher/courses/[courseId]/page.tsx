@@ -49,9 +49,13 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
+  // console.log(course)
+
   if (!course) {
     return redirect("/");
   }
+
+
 
   const requiredFields = [
     course.title,
@@ -63,7 +67,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   ];
 
   const totalFields = requiredFields.length;
-  const completedFields = requiredFields.filter(Boolean).length;
+  const completedFields = requiredFields.filter(Boolean).length; // this actually helps in fields if it has a value , if there is a value it will counted as 1 else null, in the case of null it wont count it as a number 
 
   const completionText = `(${completedFields}/${totalFields})`;
 
