@@ -20,7 +20,7 @@ import {
 
 interface ComboboxProps {
   options: { label: string; value: string }[];
-  value?: string;
+  value?: string; // defining if there will be any default value.
   onChange: (value: string) => void;
 }
 
@@ -51,7 +51,7 @@ export const Combobox = ({ options, value, onChange }: ComboboxProps) => {
               <CommandItem
                 key={option.value}
                 value={option.value}
-                onSelect={() => {
+                onSelect={() => {// on select is an event listner which takes on a callback function
                   onChange(option.value === value ? "" : option.value)
                   setOpen(false);
                 }}

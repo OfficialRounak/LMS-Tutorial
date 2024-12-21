@@ -81,7 +81,7 @@ export const ChapterVideoForm = ({
       {isEditing && (
         <div>
           <FileUpload
-            endpoint="chapterVideo"
+            endpoint="chapterVideo" // these endpoints are made fixed in backened under api/uploadthing/core.ts 
             onChange={(url) => {
               if (url) {
                 onSubmit({ videoUrl: url });

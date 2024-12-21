@@ -24,11 +24,14 @@ const ChapterList = ({ items, onEdit, onReorder }: ChapterListProps) => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  // this is to remove the hydration errors as this is a 3rd party package and is not optimsed for server-side rendering, despite of having use client directive to make this a client component - at first this code is checked on server side and then run in the client side, so it might have hydration errors , so this useEffect is used so that this compoment stays unmounted while server check and only when it comes to client side then it gets mounted.
+  // this is to remove the hydration errors as this is a 3rd party package and is not optimsed for server-side rendering, despite of having use client directive to make this a client component
+  //at first this code is checked on server side and then run in the client side, so it might have hydration errors , so this useEffect is used so that this compoment stays unmounted while server check and only when it comes to client side then it gets mounted.
   useEffect(() => {
     setChapters(items);
   }, [items]);
+
   if (!isMounted) {
+    //this check is only for the server side ,which happens in the begining ,at that time nothing will be returned and when the controls comes to clientside, in the initial loading of the app the useEffect will turn mounted to true hence the component starts working with the real return
     return null;
   }
 

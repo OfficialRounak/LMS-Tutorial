@@ -28,7 +28,7 @@ interface PriceFormProps {
 }
 
 const formSchema = z.object({
-  price: z.coerce.number(),
+  price: z.coerce.number(), // it converts strings to number : "123" it will take it as 123
 });
 
 const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
@@ -100,7 +100,7 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      step="0.01"
+                      step="0.01" // this is used to give acceptance upto 2 digit after decimal , like 1.16 or 99.99
                       type="number"
                       disabled={isSubmitting}
                       placeholder="Set a price for your course"

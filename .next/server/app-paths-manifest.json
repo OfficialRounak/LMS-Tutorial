@@ -1,7 +1,5 @@
 {
-  "/api/courses/[courseId]/route": "app/api/courses/[courseId]/route.js",
-  "/(dashboard)/(routes)/page": "app/(dashboard)/(routes)/page.js",
-  "/(dashboard)/(routes)/teacher/create/page": "app/(dashboard)/(routes)/teacher/create/page.js",
-  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
+  "/api/courses/[courseId]/chapters/[chapterId]/route": "app/api/courses/[courseId]/chapters/[chapterId]/route.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
 }

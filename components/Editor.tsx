@@ -12,7 +12,7 @@ interface EditorProps {
 export const Editor=({onChange , value}:EditorProps)=>{
     const ReactQuill = useMemo(()=>dynamic(()=>import("react-quill"),{
         ssr : false
-    }),[])
+    }),[]) // this is agin done to avoid ssr in next js , alternate method to avoid ssr in react as react quill is a client side component.
 
     return (
         <div className="bg-white">

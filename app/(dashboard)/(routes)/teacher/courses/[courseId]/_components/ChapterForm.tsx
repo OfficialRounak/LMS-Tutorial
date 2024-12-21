@@ -60,7 +60,7 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
     } catch (error) {
       toast.error("Something went wrong!");
     }
-  };
+  }; // for creating chapters
 
   const onReorder = async (updatedList: { id: string; position: number }[]) => {
     try {
@@ -79,7 +79,7 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
 
   const onEdit=(chapterId : string)=>{
     router.push(`/teacher/courses/${courseId}/chapters/${chapterId}`)
-  }
+  } // for editing chapter details
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4 relative">

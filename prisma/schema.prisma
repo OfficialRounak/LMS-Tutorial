@@ -62,7 +62,8 @@ model Chapter {
   muxData Muxdata?
 
   courseId String
-  course Course @relation(fields: [courseId],references: [id],onDelete: Cascade)
+  course Course @relation(fields: [courseId],references: [id],onDelete: Cascade) //references is the field for the parent to whom its actually related,creates a same course id column which is there in the parent model and makes a relation with the chapter id   
+  //fields: is the particular model key through which the relation of the parent is established
 
   userProgress UserProgress[]
 

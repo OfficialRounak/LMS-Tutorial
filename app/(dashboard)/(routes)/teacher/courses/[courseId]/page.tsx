@@ -37,7 +37,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
       },
       attachments: {
         orderBy: {
-          createdAt: "desc",
+          createdAt: "asc",
         },
       },
     },
@@ -49,7 +49,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
-  // console.log(course)
+  console.log("checking for chap",course?.chapters)
 
   if (!course) {
     return redirect("/");
@@ -77,7 +77,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl font-medium">Course Setup</h1>
           <span className="text-sm text-slate-700">
-            Completed all fields{completionText}{" "}
+            Completed all fields{completionText}
           </span>
         </div>
       </div>

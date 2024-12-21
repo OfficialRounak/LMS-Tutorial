@@ -112,7 +112,8 @@ export const SelectOptionForm = ({
                   <FormControl>
                   <Combobox
                       options={options}
-                      {...field}
+                      {...field} // the other props are actually included in this field spread like : onChange , values, only for the data we needed to pass in the option 
+                      //as it was not a default prop.
                     />
                   </FormControl>
                   <FormDescription>
