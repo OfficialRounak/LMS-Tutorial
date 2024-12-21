@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import axios from 'axios';
+import { Button } from '@/components/ui/button';
 
 import {
   Form,
@@ -13,14 +13,14 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { useState } from "react";
-import { Pencil, ShieldCloseIcon } from "lucide-react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { Course } from "@prisma/client";
-import { Combobox } from "@/components/ui/combobox";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/form';
+import { useState } from 'react';
+import { Pencil, ShieldCloseIcon } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import { Course } from '@prisma/client';
+import { Combobox } from '@/components/ui/combobox';
+import { cn } from '@/lib/utils';
 
 interface SelectOptionFormProps {
   initialData: Course;
@@ -30,7 +30,7 @@ interface SelectOptionFormProps {
 
 const formSchema = z.object({
   categoryId: z.string().min(1, {
-    message: "Category is required",
+    message: 'Category is required',
   }),
 });
 
@@ -49,7 +49,7 @@ export const SelectOptionForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      categoryId: "",
+      categoryId: '',
     },
   });
 
@@ -58,11 +58,11 @@ export const SelectOptionForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated");
+      toast.success('Course updated');
       toggleEdit();
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
   };
 
@@ -91,11 +91,11 @@ export const SelectOptionForm = ({
       {!isEditing && (
         <p
           className={cn(
-            "text-sm mt-2",
-            !initialData.categoryId && "text-slate-500 italic"
+            'text-sm mt-2',
+            !initialData.categoryId && 'text-slate-500 italic'
           )}
         >
-          {selectedOption?.label || "No Category"}
+          {selectedOption?.label || 'No Category'}
         </p>
       )}
       {isEditing && (
@@ -110,9 +110,9 @@ export const SelectOptionForm = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                  <Combobox
+                    <Combobox
                       options={options}
-                      {...field} // the other props are actually included in this field spread like : onChange , values, only for the data we needed to pass in the option 
+                      {...field} // the other props are actually included in this field spread like : onChange , values, only for the data we needed to pass in the option
                       //as it was not a default prop.
                     />
                   </FormControl>

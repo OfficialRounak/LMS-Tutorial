@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import axios from 'axios';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Form,
   FormControl,
@@ -13,11 +13,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { useState } from "react";
-import { Pencil, ShieldCloseIcon } from "lucide-react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+} from '@/components/ui/form';
+import { useState } from 'react';
+import { Pencil, ShieldCloseIcon } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 interface ChapterTitleformProps {
   initialData: {
@@ -31,7 +31,11 @@ const formSchema = z.object({
   title: z.string().min(1),
 });
 
-const ChapterTitleform = ({ initialData, courseId, chapterId }: ChapterTitleformProps) => {
+const ChapterTitleform = ({
+  initialData,
+  courseId,
+  chapterId,
+}: ChapterTitleformProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const router = useRouter();
 
@@ -42,7 +46,7 @@ const ChapterTitleform = ({ initialData, courseId, chapterId }: ChapterTitleform
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
+      title: '',
     },
   });
 
@@ -50,12 +54,15 @@ const ChapterTitleform = ({ initialData, courseId, chapterId }: ChapterTitleform
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
-      toast.success("Chapter title updated");
+      await axios.patch(
+        `/api/courses/${courseId}/chapters/${chapterId}`,
+        values
+      );
+      toast.success('Chapter title updated');
       toggleEdit();
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
   };
 

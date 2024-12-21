@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import axios from 'axios';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Form,
   FormControl,
@@ -13,11 +13,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { useState } from "react";
-import { Pencil, ShieldCloseIcon } from "lucide-react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+} from '@/components/ui/form';
+import { useState } from 'react';
+import { Pencil, ShieldCloseIcon } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 interface TitleFormProps {
   initialData: {
@@ -28,13 +28,13 @@ interface TitleFormProps {
 
 const formSchema = z.object({
   title: z.string().min(1, {
-    message: "Title is required",
+    message: 'Title is required',
   }),
 });
 
 const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
-  const router= useRouter()
+  const router = useRouter();
 
   const toggleEdit = () => {
     setIsEditing(!isEditing);
@@ -43,7 +43,7 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
+      title: '',
     },
   });
 
@@ -51,13 +51,12 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-        await axios.patch(`/api/courses/${courseId}`,values)
-        toast.success("Course updated")
-        toggleEdit()
-        router.refresh()
-        
+      await axios.patch(`/api/courses/${courseId}`, values);
+      toast.success('Course updated');
+      toggleEdit();
+      router.refresh();
     } catch (error) {
-        toast.error("Something went wrong!")
+      toast.error('Something went wrong!');
     }
   };
 
@@ -92,23 +91,23 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input 
-                    disabled={isSubmitting}
-                    placeholder="Title here .." 
-                    {...field} 
+                    <Input
+                      disabled={isSubmitting}
+                      placeholder="Title here .."
+                      {...field}
                     />
                   </FormControl>
                   <FormDescription>
-                    Write your Course name here.  e.g: Adavnced Web Development
+                    Write your Course name here. e.g: Adavnced Web Development
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <div className="flex items-center justify-between">
-            <Button
-            disabled={!isValid || isSubmitting}
-            type="submit">Save</Button>
+              <Button disabled={!isValid || isSubmitting} type="submit">
+                Save
+              </Button>
             </div>
           </form>
         </Form>

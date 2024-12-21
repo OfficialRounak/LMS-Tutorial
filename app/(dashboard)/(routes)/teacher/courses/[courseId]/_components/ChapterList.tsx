@@ -1,15 +1,15 @@
-"use client";
-import { Chapter } from "@prisma/client";
-import React, { useEffect, useState } from "react";
+'use client';
+import { Chapter } from '@prisma/client';
+import React, { useEffect, useState } from 'react';
 
 import {
   DragDropContext,
   Draggable,
   Droppable,
   DropResult,
-} from "@hello-pangea/dnd";
-import { cn } from "@/lib/utils";
-import { Grip, Pencil } from "lucide-react";
+} from '@hello-pangea/dnd';
+import { cn } from '@/lib/utils';
+import { Grip, Pencil } from 'lucide-react';
 
 interface ChapterListProps {
   items: Chapter[];
@@ -74,18 +74,18 @@ const ChapterList = ({ items, onEdit, onReorder }: ChapterListProps) => {
                 {(provided) => (
                   <div
                     className={cn(
-                      "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
+                      'flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm',
                       chapter.isPublished &&
-                        "bg-sky-100 border-sky-200 text-sky-700"
+                        'bg-sky-100 border-sky-200 text-sky-700'
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
                       className={cn(
-                        "px-2 py-3 border-r border-r-slate-200 hover:bg-slate-300 rounded-l-md transition",
+                        'px-2 py-3 border-r border-r-slate-200 hover:bg-slate-300 rounded-l-md transition',
                         chapter.isPublished &&
-                          "border-r-sky-200 hover:bg-sky-200"
+                          'border-r-sky-200 hover:bg-sky-200'
                       )}
                       {...provided.dragHandleProps}
                     >
@@ -100,12 +100,12 @@ const ChapterList = ({ items, onEdit, onReorder }: ChapterListProps) => {
                       )}
                       <div
                         className={cn(
-                          "bg-slate-500 text-white border rounded-md p-2",
+                          'bg-slate-500 text-white border rounded-md p-2',
                           chapter.isPublished &&
-                            "bg-sky-700 text-white border rounded-md p-2"
+                            'bg-sky-700 text-white border rounded-md p-2'
                         )}
                       >
-                        {chapter.isPublished ? "Published" : "Draft"}
+                        {chapter.isPublished ? 'Published' : 'Draft'}
                       </div>
                       <Pencil
                         onClick={() => onEdit(chapter.id)}

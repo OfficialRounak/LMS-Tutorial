@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "off", // Disable reporting Prettier formatting issues
+    "react/react-in-jsx-scope": "off", // If using Next.js
+    "no-console": "warn", // Example: Customize rules you care about
+    "indent": "off", // Disable formatting-specific rule
+    "comma-dangle": "off", // Disable formatting-specific rule
+    "quotes": "off", // Disable formatting-specific rule
+    "semi": "off" // Disable formatting-specific rule
+  }
 }

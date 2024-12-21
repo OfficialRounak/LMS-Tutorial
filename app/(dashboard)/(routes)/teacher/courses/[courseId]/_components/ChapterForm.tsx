@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Chapter, Course } from "@prisma/client";
-import { Loader2, Pencil, PlusCircle, ShieldCloseIcon } from "lucide-react";
-import React, { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Chapter, Course } from '@prisma/client';
+import { Loader2, Pencil, PlusCircle, ShieldCloseIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 import {
   Form,
@@ -16,12 +16,12 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { Input } from "@/components/ui/input";
-import ChapterList from "./ChapterList";
+} from '@/components/ui/form';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { Input } from '@/components/ui/input';
+import ChapterList from './ChapterList';
 
 interface ChapterFormProps {
   initialData: Course & { chapters: Chapter[] };
@@ -45,7 +45,7 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
+      title: '',
     },
   });
 
@@ -54,11 +54,11 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
-      toast.success("Course updated");
+      toast.success('Course updated');
       toggleCreating();
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
   }; // for creating chapters
 
@@ -68,18 +68,18 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
       await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
         list: updatedList,
       });
-      toast.success("Chapters Reordered");
+      toast.success('Chapters Reordered');
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     } finally {
       setIsUpdating(false);
     }
   };
 
-  const onEdit=(chapterId : string)=>{
-    router.push(`/teacher/courses/${courseId}/chapters/${chapterId}`)
-  } // for editing chapter details
+  const onEdit = (chapterId: string) => {
+    router.push(`/teacher/courses/${courseId}/chapters/${chapterId}`);
+  }; // for editing chapter details
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4 relative">
@@ -133,11 +133,11 @@ const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
       {!isCreating && (
         <div
           className={cn(
-            "text-sm mt-2",
-            !initialData.chapters.length && "text-slate-500 italic"
+            'text-sm mt-2',
+            !initialData.chapters.length && 'text-slate-500 italic'
           )}
         >
-          {!initialData.chapters.length && "No chapters"}
+          {!initialData.chapters.length && 'No chapters'}
           <ChapterList
             onEdit={onEdit}
             onReorder={onReorder}

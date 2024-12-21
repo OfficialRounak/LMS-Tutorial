@@ -1,37 +1,37 @@
-"use client";
-import { BarChart, Book, Compass, Layout } from "lucide-react";
-import SidebarItems from "./SidebarItems";
-import { usePathname } from "next/navigation";
+'use client';
+import { BarChart, Book, Compass, Layout } from 'lucide-react';
+import SidebarItems from './SidebarItems';
+import { usePathname } from 'next/navigation';
 
 const guestRoutes = [
   {
     icon: Layout,
-    label: "Dashboard",
-    href: "/",
+    label: 'Dashboard',
+    href: '/',
   },
   {
     icon: Compass,
-    label: "Browse",
-    href: "/search",
+    label: 'Browse',
+    href: '/search',
   },
 ];
 
 const teacherRoutes = [
   {
     icon: Book,
-    label: "Courses",
-    href: "/teacher/courses",
+    label: 'Courses',
+    href: '/teacher/courses',
   },
   {
     icon: BarChart,
-    label: "Analytics",
-    href: "/teacher/analytics",
+    label: 'Analytics',
+    href: '/teacher/analytics',
   },
 ];
 
 const SidebarRoutes = () => {
   const pathname = usePathname();
-  const isTeacherPage = pathname.includes("/teacher");
+  const isTeacherPage = pathname.includes('/teacher');
 
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
 

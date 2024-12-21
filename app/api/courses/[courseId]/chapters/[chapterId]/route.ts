@@ -1,14 +1,12 @@
-import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
-import Mux from "@mux/mux-node";
+import { db } from '@/lib/db';
+import { auth } from '@clerk/nextjs';
+import { NextResponse } from 'next/server';
+import Mux from '@mux/mux-node';
 
 const { Video } = new Mux(
   process.env.MUX_TOKEN_ID!,
   process.env.MUX_TOKEN_SECRET!
 );
-
-
 
 export async function DELETE(
   req: Request,
@@ -18,7 +16,7 @@ export async function DELETE(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorised", { status: 401 });
+      return new NextResponse('Unauthorised', { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -29,7 +27,7 @@ export async function DELETE(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse('Unauthorized', { status: 401 });
     }
     const chapter = await db.chapter.findUnique({
       where: {
@@ -39,7 +37,7 @@ export async function DELETE(
     });
 
     if (!chapter) {
-      return new NextResponse("Chapter Not Found", { status: 404 });
+      return new NextResponse('Chapter Not Found', { status: 404 });
     }
 
     if (chapter.videoUrl) {
@@ -85,13 +83,10 @@ export async function DELETE(
 
     return NextResponse.json(deletedChapter);
   } catch (error) {
-    console.log("[COURSE CHAPTER DELETE]", error);
-    return new NextResponse("Internal server error", { status: 500 });
+    console.log('[COURSE CHAPTER DELETE]', error);
+    return new NextResponse('Internal server error', { status: 500 });
   }
 }
-
-
-
 
 export async function PATCH(
   req: Request,
@@ -102,7 +97,7 @@ export async function PATCH(
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse('Unauthorized', { status: 401 });
     }
 
     const ownCourse = await db.course.findUnique({
@@ -113,7 +108,7 @@ export async function PATCH(
     });
 
     if (!ownCourse) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse('Unauthorized', { status: 401 });
     }
 
     const chapter = await db.chapter.update({
@@ -148,7 +143,7 @@ export async function PATCH(
       const videoAsset = await Video.Assets.create({
         // creating the videoplayback  to render in the player , we are pushing it to the mux server and cfeating a asset out of it
         input: values.videoUrl,
-        playback_policy: "public",
+        playback_policy: 'public',
         test: false,
       });
 
@@ -164,7 +159,7 @@ export async function PATCH(
 
     return NextResponse.json(chapter);
   } catch (error) {
-    console.log("[COURSE_CHAPTER]", error);
-    return new NextResponse("Internal Error", { status: 500 });
+    console.log('[COURSE_CHAPTER]', error);
+    return new NextResponse('Internal Error', { status: 500 });
   }
 }

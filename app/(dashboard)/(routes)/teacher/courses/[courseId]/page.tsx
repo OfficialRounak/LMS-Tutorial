@@ -1,27 +1,27 @@
-import { IconBadge } from "@/components/IconBadge";
-import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { IconBadge } from '@/components/IconBadge';
+import { db } from '@/lib/db';
+import { auth } from '@clerk/nextjs';
 import {
   CircleDollarSign,
   FilePlus,
   LayoutDashboard,
   ListChecks,
-} from "lucide-react";
-import { redirect } from "next/navigation";
-import React from "react";
-import TitleForm from "./_components/TitleForm";
-import DescriptionForm from "./_components/DescriptionForm";
-import { ImageForm } from "./_components/ImageForm";
-import { SelectOptionForm } from "./_components/SelectForm";
-import PriceForm from "./_components/Priceform";
-import { FileAttachmentForm } from "./_components/FileAttachmentForm";
-import ChapterForm from "./_components/ChapterForm";
+} from 'lucide-react';
+import { redirect } from 'next/navigation';
+import React from 'react';
+import TitleForm from './_components/TitleForm';
+import DescriptionForm from './_components/DescriptionForm';
+import { ImageForm } from './_components/ImageForm';
+import { SelectOptionForm } from './_components/SelectForm';
+import PriceForm from './_components/Priceform';
+import { FileAttachmentForm } from './_components/FileAttachmentForm';
+import ChapterForm from './_components/ChapterForm';
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
 
   if (!userId) {
-    return redirect("/");
+    return redirect('/');
   }
 
   const course = await db.course.findUnique({
@@ -32,12 +32,12 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     include: {
       chapters: {
         orderBy: {
-          position: "asc",
+          position: 'asc',
         },
       },
       attachments: {
         orderBy: {
-          createdAt: "asc",
+          createdAt: 'asc',
         },
       },
     },
@@ -45,17 +45,15 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 
   const categories = await db.category.findMany({
     orderBy: {
-      name: "asc",
+      name: 'asc',
     },
   });
 
-  console.log("checking for chap",course?.chapters)
+  console.log('checking for chap', course?.chapters);
 
   if (!course) {
-    return redirect("/");
+    return redirect('/');
   }
-
-
 
   const requiredFields = [
     course.title,
@@ -63,11 +61,11 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     course.imageUrl,
     course.price,
     course.categoryId,
-    course.chapters.some((chapter)=>chapter.isPublished)
+    course.chapters.some((chapter) => chapter.isPublished),
   ];
 
   const totalFields = requiredFields.length;
-  const completedFields = requiredFields.filter(Boolean).length; // this actually helps in fields if it has a value , if there is a value it will counted as 1 else null, in the case of null it wont count it as a number 
+  const completedFields = requiredFields.filter(Boolean).length; // this actually helps in fields if it has a value , if there is a value it will counted as 1 else null, in the case of null it wont count it as a number
 
   const completionText = `(${completedFields}/${totalFields})`;
 

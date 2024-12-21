@@ -1,12 +1,12 @@
-import React from "react";
-import Sidebar from "./(routes)/_components/Sidebar";
-import Navbar from "./(routes)/_components/Navbar";
+import React from 'react';
+import Sidebar from './(routes)/_components/Sidebar';
+import Navbar from './(routes)/_components/Navbar';
 
 const DashboadLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
       <div className="h-[80px] md:pl-56 w-full fixed inset-y-0 z-50">
-        <Navbar/>
+        <Navbar />
       </div>
       <div className="hidden md:flex h-full w-56 flex-col fixed inset-y-0 z-50">
         <Sidebar />

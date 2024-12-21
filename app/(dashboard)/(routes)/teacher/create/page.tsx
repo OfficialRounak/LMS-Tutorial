@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
+import React from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import axios from 'axios';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -14,21 +14,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const formSchema = z.object({
   title: z.string().min(1, {
-    message: "Title is required",
+    message: 'Title is required',
   }),
 });
-
-
-
-
 
 const CreatePage = () => {
   const router = useRouter();
@@ -36,7 +32,7 @@ const CreatePage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
+      title: '',
     },
   });
 
@@ -44,12 +40,12 @@ const CreatePage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log(values)
-      const response = await axios.post("/api/courses", values);
+      console.log(values);
+      const response = await axios.post('/api/courses', values);
       router.push(`/teacher/courses/${response.data.id}`);
-      toast.success("Success!")
+      toast.success('Success!');
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
   };
 

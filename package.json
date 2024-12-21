@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.5",
@@ -60,6 +61,9 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
     "prisma": "^5.10.2"
   }
 }

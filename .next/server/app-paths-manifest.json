@@ -1,5 +1,1 @@
-{
-  "/api/courses/[courseId]/chapters/[chapterId]/route": "app/api/courses/[courseId]/chapters/[chapterId]/route.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
-}
+{}

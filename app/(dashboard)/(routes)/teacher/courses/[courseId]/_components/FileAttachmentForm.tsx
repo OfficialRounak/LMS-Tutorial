@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import * as z from "zod";
-import axios from "axios";
-import { PlusCircle, File, Loader2, X } from "lucide-react";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { Course, Attachment } from "@prisma/client";
-import { Button } from "@/components/ui/button";
-import { FileUpload } from "@/components/fileUpload";
+import * as z from 'zod';
+import axios from 'axios';
+import { PlusCircle, File, Loader2, X } from 'lucide-react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import { Course, Attachment } from '@prisma/client';
+import { Button } from '@/components/ui/button';
+import { FileUpload } from '@/components/fileUpload';
 
 interface FileAttachmentFormProps {
   initialData: Course & { attachments: Attachment[] };
@@ -33,11 +33,11 @@ export const FileAttachmentForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/attachments`, values);
-      toast.success("Course updated");
+      toast.success('Course updated');
       toggleEdit();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error('Something went wrong');
     }
   };
 
@@ -45,10 +45,10 @@ export const FileAttachmentForm = ({
     try {
       setDeletingId(id);
       await axios.delete(`/api/courses/${courseId}/attachments/${id}`);
-      toast.success("File Deleted");
+      toast.success('File Deleted');
       router.refresh();
-    } catch(error) {
-      toast.error("Something went wrong!");
+    } catch (error) {
+      toast.error('Something went wrong!');
     } finally {
       setDeletingId(null);
     }

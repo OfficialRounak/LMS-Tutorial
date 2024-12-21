@@ -1,16 +1,16 @@
-import { IconBadge } from "@/components/IconBadge";
-import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs";
-import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import React from "react";
-import ChapterTitleform from "./_components/ChapterTitleForm";
-import ChapterDescriptionForm from "./_components/ChapterDescriptionForm";
-import ChapterAccessForm from "./_components/ChapterAccessForm";
-import { ChapterVideoForm } from "./_components/ChapterVideoForm";
-import Banner from "@/components/Banner"; 
-import ChapterActions from "./_components/ChapterActions";
+import { IconBadge } from '@/components/IconBadge';
+import { db } from '@/lib/db';
+import { auth } from '@clerk/nextjs';
+import { ArrowLeft, Eye, LayoutDashboard, Video } from 'lucide-react';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import React from 'react';
+import ChapterTitleform from './_components/ChapterTitleForm';
+import ChapterDescriptionForm from './_components/ChapterDescriptionForm';
+import ChapterAccessForm from './_components/ChapterAccessForm';
+import { ChapterVideoForm } from './_components/ChapterVideoForm';
+import Banner from '@/components/Banner';
+import ChapterActions from './_components/ChapterActions';
 
 const EachChapter = async ({
   params,
@@ -19,7 +19,7 @@ const EachChapter = async ({
 }) => {
   const { userId } = auth();
   if (!userId) {
-    return redirect("/");
+    return redirect('/');
   }
 
   const chapter = await db.chapter.findUnique({
@@ -33,7 +33,7 @@ const EachChapter = async ({
   });
 
   if (!chapter) {
-    return redirect("/");
+    return redirect('/');
   }
 
   const requiredFields = [chapter.title, chapter.describtion, chapter.videoUrl];
