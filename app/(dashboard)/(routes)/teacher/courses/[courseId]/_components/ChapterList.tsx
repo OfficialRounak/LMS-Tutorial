@@ -94,15 +94,15 @@ const ChapterList = ({ items, onEdit, onReorder }: ChapterListProps) => {
                     {chapter.title}
                     <div className="ml-auto pr-2 flex items-center gap-x-2">
                       {chapter.isFree && (
-                        <div className="bg-slate-400 text-white border rounded-md p-2">
+                        <div className="bg-slate-400 text-white border rounded-xl text-xs py-1 px-2">
                           Free
                         </div>
                       )}
                       <div
                         className={cn(
-                          'bg-slate-500 text-white border rounded-md p-2',
+                          'bg-slate-500 text-white text-xs border rounded-xl py-1 px-2',
                           chapter.isPublished &&
-                            'bg-sky-700 text-white border rounded-md p-2'
+                            'bg-sky-700 text-white text-xs border rounded-xl py-1 px-2'
                         )}
                       >
                         {chapter.isPublished ? 'Published' : 'Draft'}

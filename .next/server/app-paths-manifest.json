@@ -1,1 +1,4 @@
-{}
+{
+  "/api/courses/[courseId]/chapters/[chapterId]/unpublish/route": "app/api/courses/[courseId]/chapters/[chapterId]/unpublish/route.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
+}
