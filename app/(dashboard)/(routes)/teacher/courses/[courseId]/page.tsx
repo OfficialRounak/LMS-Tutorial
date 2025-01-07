@@ -16,6 +16,8 @@ import { SelectOptionForm } from './_components/SelectForm';
 import PriceForm from './_components/Priceform';
 import { FileAttachmentForm } from './_components/FileAttachmentForm';
 import ChapterForm from './_components/ChapterForm';
+import Banner from '@/components/Banner';
+import Actions from './_components/Actions';
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -49,7 +51,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
-  console.log('checking for chap', course?.chapters);
+  // console.log('checking for chap', course?.chapters);
 
   if (!course) {
     return redirect('/');
@@ -69,7 +71,11 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 
   const completionText = `(${completedFields}/${totalFields})`;
 
+  const completedCourse = requiredFields.filter(Boolean)
+
   return (
+    <>
+    {!course.isPublished && (<Banner label='This course is unpublished. It will not be visible to the students.'/>)}
     <div className="p-6">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-2">
@@ -78,6 +84,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             Completed all fields{completionText}
           </span>
         </div>
+        <Actions courseId={course.id} disabled={!completedCourse} isPublished={course.isPublished}/>
       </div>
       <div className="grid md:grid grid-cols-2 gap-6 mt-16">
         <div>
@@ -128,6 +135,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

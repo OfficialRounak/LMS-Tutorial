@@ -34,14 +34,14 @@ export async function PATCH(
       data: {
         isPublished: false,
       },
-    });
+    }); // unpublishing a chap
 
     const publishedChapterInCourse = await db.chapter.findMany({
       where: {
         courseId: params.courseId,
         isPublished: true,
       },
-    });
+    });// after unpublishing checking whther any chapters are left or not which are published 
 
     if (!publishedChapterInCourse.length) {
       await db.course.update({
@@ -52,7 +52,7 @@ export async function PATCH(
           isPublished: false,
         },
       });
-    }
+    } // if there is no chapter left as published in the course , means the chapter we unpublished was the only chapter , we should unpublish the course if its in publish status by any chance.
 
     return NextResponse.json(unpublishedChapter);
   } catch (error) {
