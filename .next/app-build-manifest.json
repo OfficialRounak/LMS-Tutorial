@@ -6,46 +6,21 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(auth)/(routes)/sign-in/[[...sign-in]]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js"
-    ],
-    "/(auth)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/layout.js"
-    ],
     "/(dashboard)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(dashboard)/layout.js"
-    ],
-    "/(dashboard)/(routes)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/page.js"
-    ],
-    "/(dashboard)/(routes)/teacher/courses/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/courses/page.js"
-    ],
-    "/(dashboard)/(routes)/teacher/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/create/page.js"
-    ],
-    "/(dashboard)/(routes)/teacher/courses/[courseId]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
     ],
     "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.css",
       "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
+    ],
+    "/(dashboard)/(routes)/teacher/courses/[courseId]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
     ]
   }
 }

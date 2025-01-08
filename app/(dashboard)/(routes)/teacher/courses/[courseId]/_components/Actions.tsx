@@ -44,7 +44,7 @@ const Actions = ({
         await axios.patch(
           `/api/courses/${courseId}/unpublish`
         );
-        toast.success("Course UnPublished")
+        toast.success("Course Unpublished")
       } else {
         await axios.patch(
           `/api/courses/${courseId}/publish`
