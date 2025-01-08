@@ -1,6 +1,6 @@
 {
   "/api/courses/[courseId]/unpublish/route": "app/api/courses/[courseId]/unpublish/route.js",
-  "/api/courses/[courseId]/chapters/[chapterId]/route": "app/api/courses/[courseId]/chapters/[chapterId]/route.js",
+  "/api/courses/[courseId]/publish/route": "app/api/courses/[courseId]/publish/route.js",
   "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js",
   "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
 }
