@@ -49,7 +49,7 @@ export const columns: ColumnDef<Course>[] = [
       }).format(amount);
       return (
         <div className="font-medium">
-          {formatted === '$NaN' ? 'Not yet decided.' : formatted}
+          {formatted === '$NaN' ? '---' : formatted}
         </div>
       );
     },
