@@ -27,7 +27,7 @@ export const progress = async (
                 },
                 isCompleted:true
             }
-        }) // this heps in filtering chapters completed from the published chapter in a course 
+        }) // this helps in filtering chapters completed from the published chapter in a course 
 
         const progressPercentage = (validCompletedChapters/publishedChapterIds.length)*100;
         

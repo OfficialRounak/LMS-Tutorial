@@ -9,23 +9,25 @@ datasource db {
  
 
 model Course {
-  id String @id @default(uuid())
-  userId String
-  title String @db.Text
-  description String? @db.Text
-  imageUrl String? @db.Text
-  price Float?
-  isPublished Boolean @default(false)
+  id           String   @id @default(uuid())
+  userId       String
+  title        String   @db.Text
+  description  String?  @db.Text
+  imageUrl     String?  @db.Text
+  price        Float?
+  isPublished  Boolean  @default(false)
 
-  categoryId String?
-  category Category? @relation(fields: [categoryId],references: [id])
+  categoryId   String?
+  category     Category? @relation(fields: [categoryId], references: [id])
 
-  chapters Chapter[]
-  attachments Attachment[]
-  purchases Purchase[]
+  chapters     Chapter[]
+  attachments  Attachment[]
+  purchases    Purchase[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  searchVector String?  @db.Text  // Keep it as String for interaction with TsVector column in DB
 
   @@index([categoryId])
 }

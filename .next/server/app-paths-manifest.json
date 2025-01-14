@@ -1,6 +1,3 @@
 {
-  "/(dashboard)/(routes)/page": "app/(dashboard)/(routes)/page.js",
-  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js",
-  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
+  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js"
 }
