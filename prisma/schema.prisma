@@ -27,8 +27,6 @@ model Course {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  searchVector String?  @db.Text  // Keep it as String for interaction with TsVector column in DB
-
   @@index([categoryId])
 }
 
