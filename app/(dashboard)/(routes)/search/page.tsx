@@ -14,6 +14,7 @@ interface searchParamsProps {
 }
 
 const SearchPage = async ({ searchParams }: searchParamsProps) => {
+  const {categoryId ,title} = searchParams;
   const { userId } = auth();
   if (!userId) {
     redirect('/');
@@ -26,12 +27,13 @@ const SearchPage = async ({ searchParams }: searchParamsProps) => {
 
   const courses = await getCourses({
     userId,
-    ...searchParams,
+    title,
+    categoryId
   });
 
   return (
     <div className="p-6">
-      <div className="py-6 px-4">
+      <div className="py-6 px-4 space-y-4">
         <Categories items={categories} />
       </div>
       <CoursesList items={courses} />

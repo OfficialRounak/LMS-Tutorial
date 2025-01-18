@@ -1,3 +1,7 @@
 {
-  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js"
+  "/(course)/courses/[courseId]/page": "app/(course)/courses/[courseId]/page.js",
+  "/(dashboard)/(routes)/page": "app/(dashboard)/(routes)/page.js",
+  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
 }
