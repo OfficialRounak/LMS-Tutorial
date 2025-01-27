@@ -2,7 +2,7 @@ import React from 'react'
 
 const ParticularCoursePage = () => {
   return (
-    <div>ParticularCoursePage</div>
+    <div>watch the course</div>
   )
 }
 
